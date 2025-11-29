@@ -9,7 +9,15 @@ export class ProtectService {
     return this.scoreEngine.calculateAndPersistScore(deviceId);
   }
 
+  /*
+    return {"security":40,"engagement":6,"insurance":0}
+  */
   getScorePreview(deviceId: string, threatIds: string[], ignoreOtherThreats = true) {
+/**
+ *  get score from thretIds only usinf threats list table, ignoring other threats if specified
+ *  [{id, deducation},...]
+ */
+
     return this.scoreEngine.calculatePreviewScore(deviceId, threatIds, ignoreOtherThreats);
   }
 

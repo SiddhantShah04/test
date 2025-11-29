@@ -118,8 +118,11 @@ export class ScoreEngineService {
   }
 
   async calculatePreviewScore(deviceId: string, threatIds: string[], ignoreOtherThreats = true): Promise<ScoreResult> {
+    
     const now = new Date();
+
     const { securityScore, securityDeductions } = await this.calculateSecurity(deviceId, threatIds, ignoreOtherThreats);
+    
     const engagementPoints = await this.calculateEngagement(deviceId);
     const insurancePoints = 0;
 
